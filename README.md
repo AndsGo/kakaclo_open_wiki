@@ -67,6 +67,13 @@ icon: book
 * [lora-tool：为 image注入 LoRA 魔力](loratool-wei-image-zhu-ru-lora-mo-li.md)
 * [没有AI背景的团队如何快速进行AI开发](mei-you-ai-bei-jing-de-tuan-dui-ru-he-kuai-su-jin-xing-ai-kai-fa.md)
 
+[VIBE CODING](broken-reference)
+
+* [kiro spec复现](vibe-coding/kiro-spec-fu-xian.md)
+* [6A工作流](vibe-coding/6a-gong-zuo-liu.md)
+* [TDD 测试驱动开发](vibe-coding/tdd-ce-shi-qu-dong-kai-fa.md)
+* [项目规范](vibe-coding/xiang-mu-gui-fan.md)
+
 [架构](broken-reference)
 
 * [DDD简单入门](jia-gou/ddd-jian-dan-ru-men.md)
