@@ -87,6 +87,7 @@
 * [项目规范](vibe-coding/xiang-mu-gui-fan.md)
 * [mvp技术栈](vibe-coding/mvp-ji-shu-zhan.md)
 * [小技巧](vibe-coding/xiao-ji-qiao.md)
+* [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 
 ## 架构
 
