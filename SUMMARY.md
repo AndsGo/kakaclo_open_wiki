@@ -86,6 +86,7 @@
 * [TDD 测试驱动开发](vibe-coding/tdd-ce-shi-qu-dong-kai-fa.md)
 * [项目规范](vibe-coding/xiang-mu-gui-fan.md)
 * [mvp技术栈](vibe-coding/mvp-ji-shu-zhan.md)
+* [小技巧](vibe-coding/xiao-ji-qiao.md)
 
 ## 架构
 
