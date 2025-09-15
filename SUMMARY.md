@@ -77,6 +77,7 @@
 * [Cursor的AI编码最佳实践指南](cursor-de-ai-bian-ma-zui-jia-shi-jian-zhi-nan.md)
 * [lora-tool：为 image注入 LoRA 魔力](loratool-wei-image-zhu-ru-lora-mo-li.md)
 * [没有AI背景的团队如何快速进行AI开发](mei-you-ai-bei-jing-de-tuan-dui-ru-he-kuai-su-jin-xing-ai-kai-fa.md)
+* [build you own code agent](build-you-own-code-agent.md)
 
 ## vibe coding
 
