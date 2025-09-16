@@ -92,3 +92,7 @@
 ## 架构
 
 * [DDD 简单入门](jia-gou/ddd-jian-dan-ru-men.md)
+
+## read note
+
+* [心得体会](read-note/xin-de-ti-hui.md)
