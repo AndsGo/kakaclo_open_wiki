@@ -65,6 +65,19 @@ icon: book
 * [LangGpt prompt样例](langgpt-prompt-yang-li.md)
 * [Cursor的AI编码最佳实践指南](cursor-de-ai-bian-ma-zui-jia-shi-jian-zhi-nan.md)
 * [lora-tool：为 image注入 LoRA 魔力](loratool-wei-image-zhu-ru-lora-mo-li.md)
+* [没有AI背景的团队如何快速进行AI开发](mei-you-ai-bei-jing-de-tuan-dui-ru-he-kuai-su-jin-xing-ai-kai-fa.md)
+* [build you own code agent](build-you-own-code-agent.md)
+* [启发式AI沟通框架](qi-fa-shi-ai-gou-tong-kuang-jia.md)
+
+[VIBE CODING](broken-reference)
+
+* [kiro spec复现](vibe-coding/kiro-spec-fu-xian.md)
+* [6A工作流](vibe-coding/6a-gong-zuo-liu.md)
+* [TDD 测试驱动开发](vibe-coding/tdd-ce-shi-qu-dong-kai-fa.md)
+* [项目规范](vibe-coding/xiang-mu-gui-fan.md)
+* [mvp技术栈](vibe-coding/mvp-ji-shu-zhan.md)
+* [小技巧](vibe-coding/xiao-ji-qiao.md)
+* [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 
 [架构](broken-reference)
 

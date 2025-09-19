@@ -3,7 +3,7 @@
 {% hint style="info" %}
 来源
 
-本规范参考了 [uber-go](https://github.com/xxjwxc/uber\_go\_guide\_cn)
+本规范参考了 [uber-go](https://github.com/xxjwxc/uber_go_guide_cn)
 {% endhint %}
 
 [原文](https://goguide.ryansu.tech/guide/standard/1-golang.html)
@@ -101,12 +101,9 @@ const EnvVar = "MY_ENV"
 
 如果单个变量赋值，建议使用 `:=`， 但是切片建议使用 `var` 声明。
 
-| 不推荐                                                                                                                                                                                                 | 推荐                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-parigp"><code class="lang-parigp">var s = "foo"
-</code></pre>                                                                                                                  | <pre class="language-go"><code class="lang-go">s := "foo"
-</code></pre>                                                                                                                            |
-| <pre class="language-go"><code class="lang-go">func f(list []int) {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-parigp"><code class="lang-parigp">var s = "foo"
+</code></pre></td><td><pre class="language-go"><code class="lang-go">s := "foo"
+</code></pre></td></tr><tr><td><pre class="language-go"><code class="lang-go">func f(list []int) {
   filtered := []int{}
   for _, v := range list {
     if v > 10 {
@@ -114,7 +111,7 @@ const EnvVar = "MY_ENV"
     }
   }
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">func f(list []int) {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">func f(list []int) {
   var filtered []int
   for _, v := range list {
     if v > 10 {
@@ -122,7 +119,7 @@ const EnvVar = "MY_ENV"
     }
   }
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### import 分组规范 <a href="#import-fen-zu-gui-fan" id="import-fen-zu-gui-fan"></a>
 
@@ -141,22 +138,20 @@ const EnvVar = "MY_ENV"
 * 第三方库
 * 本地库和私有库
 
-| 不推荐                                                                                                                                          | 推荐                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">import (
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">import (
   "fmt"
   "os"
   "go.uber.org/atomic"
   "golang.org/x/sync/errgroup"
 )
-</code></pre> | <pre class="language-go"><code class="lang-go">import (
+</code></pre></td><td><pre class="language-go"><code class="lang-go">import (
   "fmt"
   "os"
 
   "go.uber.org/atomic"
   "golang.org/x/sync/errgroup"
 )
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 导入别名 <a href="#dao-ru-bie-ming" id="dao-ru-bie-ming"></a>
 
@@ -194,9 +189,7 @@ import (
 * 同一个文件中函数应放在 `struct`, `const`, `var` 定义之后
 * 有接收者的函数中的 `new` 或 `New` 开头的函数应放在前面
 
-| 不推荐                                                                                                                                                                                                                                                                                         | 推荐                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">func (s *something) Cost() {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">func (s *something) Cost() {
   return calcCost(s.weights)
 }
 
@@ -209,7 +202,7 @@ func (s *something) Stop() {...}
 func newSomething() *something {
     return &#x26;something{}
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">type something struct{ ... }
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type something struct{ ... }
 
 func newSomething() *something {
     return &#x26;something{}
@@ -222,15 +215,13 @@ func (s *something) Cost() {
 func (s *something) Stop() {...}
 
 func calcCost(n []int) int {...}
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 减少嵌套 <a href="#jian-shao-qian-tao" id="jian-shao-qian-tao"></a>
 
 代码应该有限处理错误或者特殊情况并且尽早返回，而不是嵌套代码块。可以使代码更直观简洁。
 
-| 不推荐                                                                                                                                                                                                                                                                   | 推荐                                                                                                                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">for _, v := range data {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">for _, v := range data {
   if v.F1 == 1 {
     v = process(v)
     if err := v.Call(); err == nil {
@@ -242,7 +233,7 @@ func calcCost(n []int) int {...}
     log.Printf("Invalid v: %v", v)
   }
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">for _, v := range data {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">for _, v := range data {
   if v.F1 != 1 {
     log.Printf("Invalid v: %v", v)
     continue
@@ -254,85 +245,76 @@ func calcCost(n []int) int {...}
   }
   v.Send()
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 减少不必要的 else <a href="#jian-shao-bu-bi-yao-de-else" id="jian-shao-bu-bi-yao-de-else"></a>
 
-| 不推荐                                                                                                         | 推荐                                                                                      |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">var a int
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">var a int
 if b {
   a = 100
 } else {
   a = 10
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">a := 10
+</code></pre></td><td><pre class="language-go"><code class="lang-go">a := 10
 if b {
   a = 100
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 顶层变量声明 <a href="#ding-ceng-bian-liang-sheng-ming" id="ding-ceng-bian-liang-sheng-ming"></a>
 
-| 不推荐                                                                                                                                                                                                                                                                                                     | 推荐                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">var _s string = F()
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">var _s string = F()
 
 func F() string { return "A" }
-</code></pre>                                                                                                                                                                                        | <pre class="language-go"><code class="lang-go">var _s = F()
+</code></pre></td><td><pre class="language-go"><code class="lang-go">var _s = F()
 // 由于 F 已经明确了返回一个字符串类型，
 // 因此我们没有必要显式指定_s 的类型
 
 func F() string { return "A" }
-</code></pre>                                         |
-| <p>如果我们希望 <code>_e</code> 为 <code>error</code> 类型， 以下定义是错误的, <code>_e</code> 会被定义为 <code>myError</code> 类型</p><pre class="language-go"><code class="lang-go">type myError struct{}
+</code></pre></td></tr><tr><td><p>如果我们希望 <code>_e</code> 为 <code>error</code> 类型， 以下定义是错误的, <code>_e</code> 会被定义为 <code>myError</code> 类型</p><pre class="language-go"><code class="lang-go">type myError struct{}
 
 func (myError) Error() string { return "error" }
 
 func F() myError { return myError{} }
 
 var _e = F()
-</code></pre> | <pre class="language-go"><code class="lang-go">type myError struct{}
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type myError struct{}
 
 func (myError) Error() string { return "error" }
 
 func F() myError { return myError{} }
 
 var _e error = F()
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 对于未导出的顶层常量和变量使用 `_` 作为前缀 <a href="#dui-yu-wei-dao-chu-de-ding-ceng-chang-liang-he-bian-liang-shi-yong-zuo-wei-qian-zhui" id="dui-yu-wei-dao-chu-de-ding-ceng-chang-liang-he-bian-liang-shi-yong-zuo-wei-qian-zhui"></a>
 
-| Bad                                                                                                                           | Good                                                                                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">// foo.go
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">// foo.go
 
 const (
   defaultPort = 8080
   defaultUser = "user"
 )
-</code></pre> | <pre class="language-go"><code class="lang-go">// foo.go
+</code></pre></td><td><pre class="language-go"><code class="lang-go">// foo.go
 
 const (
   _defaultPort = 8080
   _defaultUser = "user"
 )
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 结构体中的嵌入式类型需放在顶部且用空行隔开 <a href="#jie-gou-ti-zhong-de-qian-ru-shi-lei-xing-xu-fang-zai-ding-bu-qie-yong-kong-hang-ge-kai" id="jie-gou-ti-zhong-de-qian-ru-shi-lei-xing-xu-fang-zai-ding-bu-qie-yong-kong-hang-ge-kai"></a>
 
-| 不推荐                                                                                                             | 建议                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">type Client struct {
+<table><thead><tr><th>不推荐</th><th>建议</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">type Client struct {
   version int
   http.Client
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">type Client struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type Client struct {
   http.Client
 
   version int
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 嵌入式类型优缺点
 
@@ -350,14 +332,12 @@ const (
 * 会导致方法调用的不确定性，如果嵌入的类型有相同的方法，会导致调用的不确定性
 * 给嵌入式类型的字段赋值不方便，会和其他嵌入式类型混合在一起，不容易区分
 
-| 不推荐                                                                                                                                                                                                                                                                         | 推荐                                                                                                                                                                                                                                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">type A struct {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">type A struct {
     // Bad: A.Lock() and A.Unlock() 现在可用
     // 不提供任何功能性好处，并允许用户控制有关 A 的内部细节。
     sync.Mutex
 }
-</code></pre>                                                                                                 | <pre class="language-go"><code class="lang-go">type countingWriteCloser struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type countingWriteCloser struct {
     // Good: Write() 在外层提供用于特定目的，
     // 并且委托工作到内部类型的 Write() 中。
     io.WriteCloser
@@ -367,8 +347,7 @@ func (w *countingWriteCloser) Write(bs []byte) (int, error) {
     w.count += len(bs)
     return w.WriteCloser.Write(bs)
 }
-</code></pre> |
-| <pre class="language-go"><code class="lang-go">type Book struct {
+</code></pre></td></tr><tr><td><pre class="language-go"><code class="lang-go">type Book struct {
     // Bad: 指针更改零值的有用性
     io.ReadWriter
     // other fields
@@ -378,7 +357,7 @@ var b Book
 b.Read(...)  // panic: nil pointer
 b.String()   // panic: nil pointer
 b.Write(...) // panic: nil pointer
-</code></pre> | <pre class="language-go"><code class="lang-go">type Book struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type Book struct {
     // Good: 有用的零值
     bytes.Buffer
     // other fields
@@ -388,20 +367,19 @@ var b Book
 b.Read(...)  // ok
 b.String()   // ok
 b.Write(...) // ok
-</code></pre>                                                                                                       |
-| <pre class="language-go"><code class="lang-go">type Client struct {
+</code></pre></td></tr><tr><td><pre class="language-go"><code class="lang-go">type Client struct {
     sync.Mutex
     sync.WaitGroup
     bytes.Buffer
     url.URL
 }
-</code></pre>                                                                                                                          | <pre class="language-go"><code class="lang-go">type Client struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type Client struct {
     mtx sync.Mutex
     wg  sync.WaitGroup
     buf bytes.Buffer
     url url.URL
 }
-</code></pre>                                                                                                                                                           |
+</code></pre></td></tr></tbody></table>
 
 ### nil 是一个有效的 slice <a href="#nil-shi-yi-ge-you-xiao-de-slice" id="nil-shi-yi-ge-you-xiao-de-slice"></a>
 
@@ -409,33 +387,27 @@ b.Write(...) // ok
 
 * 当返回切片为空时不应该返回一个空切片而是返回 `nil`
 
-| 不推荐                                                                                        | 建议                                                                                     |
-| ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">if x == "" {
+<table><thead><tr><th>不推荐</th><th>建议</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">if x == "" {
 return []int{}
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">if x == "" {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">if x == "" {
 return nil
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 * 使用 `len(s) == 0` 判断是否为空而不是 `s != nil`
 
-| 不推荐                                                                                                            | 建议                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">func isEmpty(s []string) bool {
+<table><thead><tr><th>不推荐</th><th>建议</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">func isEmpty(s []string) bool {
 return s == nil
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">func isEmpty(s []string) bool {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">func isEmpty(s []string) bool {
 return len(s) == 0
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 * 零值切片（用`var`声明的切片）可立即使用，无需调用`make()`创建
 
-| 不推荐                                                                                                                                                                                     | 推荐                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">nums := []int{}
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">nums := []int{}
 // or, nums := make([]int)
 
 if add1 {
@@ -445,7 +417,7 @@ if add1 {
 if add2 {
     nums = append(nums, 2)
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">var nums []int
+</code></pre></td><td><pre class="language-go"><code class="lang-go">var nums []int
 
 if add1 {
     nums = append(nums, 1)
@@ -454,23 +426,20 @@ if add1 {
 if add2 {
     nums = append(nums, 2)
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 减少变量作用域 <a href="#jian-shao-bian-liang-zuo-yong-yu" id="jian-shao-bian-liang-zuo-yong-yu"></a>
 
 尽量减少变量作用域，除非变量在其他地方也被调用
 
-| Bad                                                                                                                                                                                                                                 | Good                                                                                                                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">err := os.WriteFile(name, data, 0644)
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">err := os.WriteFile(name, data, 0644)
 if err != nil {
  return err
 }
-</code></pre>                                                                                                    | <pre class="language-go"><code class="lang-go">if err := os.WriteFile(name, data, 0644); err != nil {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">if err := os.WriteFile(name, data, 0644); err != nil {
  return err
 }
-</code></pre>                                                                                                                                                       |
-| <pre class="language-go"><code class="lang-go">if data, err := os.ReadFile(name); err == nil {
+</code></pre></td></tr><tr><td><pre class="language-go"><code class="lang-go">if data, err := os.ReadFile(name); err == nil {
   err = cfg.Decode(data)
   if err != nil {
     return err
@@ -481,7 +450,7 @@ if err != nil {
 } else {
   return err
 }
-</code></pre> | <p>由于 err 变量在 if 语句中声明，所以它的作用域仅限于 if 语句块。这样可以避免在 else 语句中使用相同的变量名。</p><pre class="language-go"><code class="lang-go">data, err := os.ReadFile(name)
+</code></pre></td><td><p>由于 err 变量在 if 语句中声明，所以它的作用域仅限于 if 语句块。这样可以避免在 else 语句中使用相同的变量名。</p><pre class="language-go"><code class="lang-go">data, err := os.ReadFile(name)
 if err != nil {
    return err
 }
@@ -492,17 +461,15 @@ if err := cfg.Decode(data); err != nil {
 
 fmt.Println(cfg)
 return nil
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 使用原生字符串而不是转义 <a href="#shi-yong-yuan-sheng-zi-fu-chuan-er-bu-shi-zhuan-yi" id="shi-yong-yuan-sheng-zi-fu-chuan-er-bu-shi-zhuan-yi"></a>
 
 当字符串内有转义字符时，优先使用 \` 来包裹字符串，表示这是原生字符串，不需要转义
 
-| 不推荐                                                                                               | 推荐                                                                                               |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <pre class="language-go"><code class="lang-go">wantError := "unknown name:\"test\""
-</code></pre> | <pre class="language-go"><code class="lang-go">wantError := `unknown error:"test"`
-</code></pre> |
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">wantError := "unknown name:\"test\""
+</code></pre></td><td><pre class="language-go"><code class="lang-go">wantError := `unknown error:"test"`
+</code></pre></td></tr></tbody></table>
 
 ### 初始化结构体 <a href="#chu-shi-hua-jie-gou-ti" id="chu-shi-hua-jie-gou-ti"></a>
 
@@ -510,84 +477,71 @@ return nil
 
 初始化结构体赋值的时候尽量添加字段名，这样可以避免因为结构体字段的变化导致初始化错误
 
-| Bad                                                                                         | Good                                                                                                                                   |
-| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">k := User{"John", "Doe", true}
-</code></pre> | <pre class="language-go"><code class="lang-go">k := User{
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">k := User{"John", "Doe", true}
+</code></pre></td><td><pre class="language-go"><code class="lang-go">k := User{
     FirstName: "John",
     LastName: "Doe",
     Admin: true,
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 #### **忽略 0 值的字段**
 
 若初始化的字段为默认的 0 值，可以省略字段名
 
-| 不推荐                                                                                                                                                    | 推荐                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">user := User{
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">user := User{
   FirstName: "John",
   LastName: "Doe",
   MiddleName: "",
   Admin: false,
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">user := User{
+</code></pre></td><td><pre class="language-go"><code class="lang-go">user := User{
   FirstName: "John",
   LastName: "Doe",
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 #### **若初始化全为 0 值的结构变量，使用 `var`**
 
-| 不推荐                                                                         | 推荐                                                                         |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">user := User{}
-</code></pre> | <pre class="language-go"><code class="lang-go">var user User
-</code></pre> |
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">user := User{}
+</code></pre></td><td><pre class="language-go"><code class="lang-go">var user User
+</code></pre></td></tr></tbody></table>
 
 #### **初始化结构体指针**
 
 初始化结构体指针时，使用 `&` 符号， 而不是 `new()`
 
-| 不推荐                                                                                           | 推荐                                                                                        |
-| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">sptr := new(T)
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">sptr := new(T)
 sptr.Name = "bar"
-</code></pre> | <pre class="language-go"><code class="lang-go">sptr := &#x26;T{Name: "bar"}
-</code></pre> |
+</code></pre></td><td><pre class="language-go"><code class="lang-go">sptr := &#x26;T{Name: "bar"}
+</code></pre></td></tr></tbody></table>
 
 ### **使用 `make()` 初始化 map**
 
 如果初始化 `map`, 如果 `map` 有初始值，建议使用 `:=` 而不是 `make()`，如果没有初始值，使用 `make()`，且建议估计 `map` 大小，设置初始化容量
 
-| 不推荐                                                                                                                   | 推荐                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| <pre class="language-go"><code class="lang-go">m := make(map[T1]T2, 3)
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">m := make(map[T1]T2, 3)
 m[k1] = v1
 m[k2] = v2
 m[k3] = v3
-</code></pre> | <pre class="language-go"><code class="lang-go">m := map[T1]T2{
+</code></pre></td><td><pre class="language-go"><code class="lang-go">m := map[T1]T2{
   k1: v1,
   k2: v2,
   k3: v3,
 }
-</code></pre> |
-| <pre class="language-go"><code class="lang-go">m := make(map[T1]T2)
-</code></pre>                                     | <pre class="language-go"><code class="lang-go">m := make(map[T1]T2， 3)
-</code></pre>                         |
+</code></pre></td></tr><tr><td><pre class="language-go"><code class="lang-go">m := make(map[T1]T2)
+</code></pre></td><td><pre class="language-go"><code class="lang-go">m := make(map[T1]T2， 3)
+</code></pre></td></tr></tbody></table>
 
 ### 若在 Printf 外定义 format 字符串，建议使用 const <a href="#ruo-zai-printf-wai-ding-yi-format-zi-fu-chuan-jian-yi-shi-yong-const" id="ruo-zai-printf-wai-ding-yi-format-zi-fu-chuan-jian-yi-shi-yong-const"></a>
 
 如果在 `Printf` 外定义格式化字符串，建议使用 `const` 常量，这样可以避免重复定义格式化字符串, 且可以帮助 `go vet` 进行静态分析。
 
-| Bad                                                                                                                    | Good                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">msg := "unexpected values %v, %v\n"
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">msg := "unexpected values %v, %v\n"
 fmt.Printf(msg, 1, 2)
-</code></pre> | <pre class="language-go"><code class="lang-go">const msg = "unexpected values %v, %v\n"
+</code></pre></td><td><pre class="language-go"><code class="lang-go">const msg = "unexpected values %v, %v\n"
 fmt.Printf(msg, 1, 2)
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ## 开发原则 <a href="#kai-fa-yuan-ze" id="kai-fa-yuan-ze"></a>
 
@@ -687,27 +641,22 @@ func (e *resolveError) Error() string {
 
 在处理错误时, 我们应该使用 `errors.Is()` 和 `errors.As()` 来判断错误类型，根据不同的错误类型进行不同的处理，如果错误无法处理，则应该明确返回错误可以来源，方便上级处理。
 
-| 描述                                                                                                                                                | 代码                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p><strong>不推荐</strong>: 记录错误并将其返回</p><p>堆栈中的调用程序可能会对该错误采取类似的操作。这样做会在应用程序日志中造成大量噪音，但收效甚微。</p>                                                     | <pre class="language-go"><code class="lang-go">u, err := getUser(id)
+<table><thead><tr><th>描述</th><th>代码</th></tr></thead><tbody><tr><td><p><strong>不推荐</strong>: 记录错误并将其返回</p><p>堆栈中的调用程序可能会对该错误采取类似的操作。这样做会在应用程序日志中造成大量噪音，但收效甚微。</p></td><td><pre class="language-go"><code class="lang-go">u, err := getUser(id)
 if err != nil {
   // BAD: See description
   log.Printf("Could not get user %q: %v", id, err)
   return err
 }
-</code></pre>                                                                              |
-| <p><strong>推荐</strong>: 将错误换行并返回</p><p>堆栈中更靠上的调用程序将处理该错误。使用<code>%w</code>可确保它们可以将错误与<code>errors.Is</code>或<code>errors.As</code>相匹配 （如果相关）。</p> | <pre class="language-go"><code class="lang-go">u, err := getUser(id)
+</code></pre></td></tr><tr><td><p><strong>推荐</strong>: 将错误换行并返回</p><p>堆栈中更靠上的调用程序将处理该错误。使用<code>%w</code>可确保它们可以将错误与<code>errors.Is</code>或<code>errors.As</code>相匹配 （如果相关）。</p></td><td><pre class="language-go"><code class="lang-go">u, err := getUser(id)
 if err != nil {
   return fmt.Errorf("get user %q: %w", id, err)
 }
-</code></pre>                                                                                                                        |
-| <p><strong>推荐</strong>: 记录错误并正常降级</p><p>如果操作不是绝对必要的，我们可以通过从中恢复来提供降级但不间断的体验。</p>                                                                   | <pre class="language-go"><code class="lang-go">if err := emitMetrics(); err != nil {
+</code></pre></td></tr><tr><td><p><strong>推荐</strong>: 记录错误并正常降级</p><p>如果操作不是绝对必要的，我们可以通过从中恢复来提供降级但不间断的体验。</p></td><td><pre class="language-go"><code class="lang-go">if err := emitMetrics(); err != nil {
   // Failure to write metrics should not
   // break the application.
   log.Printf("Could not emit metrics: %v", err)
 }
-</code></pre>                                                   |
-| <p><strong>推荐</strong>: 匹配错误并适当降级</p><p>如果被调用者在其约定中定义了一个特定的错误，并且失败是可恢复的，则匹配该错误案例并正常降级。对于所有其他案例，请包装错误并返回。</p><p>堆栈中更靠上的调用程序将处理其他错误。</p>            | <pre class="language-go"><code class="lang-go">tz, err := getUserTimeZone(id)
+</code></pre></td></tr><tr><td><p><strong>推荐</strong>: 匹配错误并适当降级</p><p>如果被调用者在其约定中定义了一个特定的错误，并且失败是可恢复的，则匹配该错误案例并正常降级。对于所有其他案例，请包装错误并返回。</p><p>堆栈中更靠上的调用程序将处理其他错误。</p></td><td><pre class="language-go"><code class="lang-go">tz, err := getUserTimeZone(id)
 if err != nil {
   if errors.Is(err, ErrUserNotFound) {
     // User doesn't exist. Use UTC.
@@ -716,24 +665,22 @@ if err != nil {
     return fmt.Errorf("get user %q: %w", id, err)
   }
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 #### 类型断言 <a href="#lei-xing-duan-yan" id="lei-xing-duan-yan"></a>
 
 在我们需要类型断言的时候，务必使用 `ok` 返回值判断，否则会导致 `panic`
 
-| 不推荐                                                                                       | 推荐                                                                                                       |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">t := i.(string) // 会导致 panic
-</code></pre> | <pre class="language-go"><code class="lang-go">t, ok := i.(string)
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">t := i.(string) // 会导致 panic
+</code></pre></td><td><pre class="language-go"><code class="lang-go">t, ok := i.(string)
 if !ok {
   // 优雅地处理错误
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 #### 尽量不使用 `panic` <a href="#jin-liang-bu-shi-yong-panic" id="jin-liang-bu-shi-yong-panic"></a>
 
-在生产环境中尽量不要使用 `panic`, `panic` 是 [级联失败](https://en.wikipedia.org/wiki/Cascading\_failure) 的主要原因，如果必须使用 `panic` ，务必使用 `recover()` 进行处理。
+在生产环境中尽量不要使用 `panic`, `panic` 是 [级联失败](https://en.wikipedia.org/wiki/Cascading_failure) 的主要原因，如果必须使用 `panic` ，务必使用 `recover()` 进行处理。
 
 ### 使用 atomic 原子操作 <a href="#shi-yong-atomic-yuan-zi-cao-zuo" id="shi-yong-atomic-yuan-zi-cao-zuo"></a>
 
@@ -741,9 +688,7 @@ if !ok {
 
 对于其他类型，则推荐使用 `channel` 或 `sync lock` 进行控制
 
-| 不推荐                                                                                                                                                                                                                                                                                                                       | 推荐                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">type foo struct {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">type foo struct {
   running int32  // atomic
 }
 
@@ -758,7 +703,7 @@ func (f* foo) start() {
 func (f *foo) isRunning() bool {
   return f.running == 1  // race!
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">type foo struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type foo struct {
   running atomic.Bool
 }
 
@@ -773,19 +718,17 @@ func (f *foo) start() {
 func (f *foo) isRunning() bool {
   return f.running.Load()
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 不要在公共的结构中使用嵌入类型 <a href="#bu-yao-zai-gong-gong-de-jie-gou-zhong-shi-yong-qian-ru-lei-xing" id="bu-yao-zai-gong-gong-de-jie-gou-zhong-shi-yong-qian-ru-lei-xing"></a>
 
 不要在公共的结构中使用嵌入类型， 主要原因是如果嵌入多个类型，则会导致大量公开接口和变量混杂，不好管理和配置，且相同的变量和函数可能冲突。且无法保证后续的版本不会冲突。
 
-| 不推荐                                                                                                                                | 推荐                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">// ConcreteList 是一个实体列表。
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">// ConcreteList 是一个实体列表。
 type ConcreteList struct {
   *AbstractList
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">// ConcreteList 是一个实体列表。
+</code></pre></td><td><pre class="language-go"><code class="lang-go">// ConcreteList 是一个实体列表。
 type ConcreteList struct {
   list *AbstractList
 }
@@ -797,7 +740,7 @@ func (l *ConcreteList) Add(e Entity) {
 func (l *ConcreteList) Remove(e Entity) {
   l.list.Remove(e)
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 避免使用内置名称 <a href="#bi-mian-shi-yong-nei-zhi-ming-cheng" id="bi-mian-shi-yong-nei-zhi-ming-cheng"></a>
 
@@ -817,24 +760,21 @@ func (l *ConcreteList) Remove(e Entity) {
 
 若能提前知道大概得数据量，应提前给 `slice` 配置容量，减少 `slice` 扩容的次数，提高性能。
 
-| 不推荐                                                                                                                                                                                      | 推荐                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">for n := 0; n &#x3C; b.N; n++ {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">for n := 0; n &#x3C; b.N; n++ {
   data := make([]int, 0)
   for k := 0; k &#x3C; size; k++{
     data = append(data, k)
   }
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">for n := 0; n &#x3C; b.N; n++ {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">for n := 0; n &#x3C; b.N; n++ {
   data := make([]int, 0, size)
   for k := 0; k &#x3C; size; k++{
     data = append(data, k)
   }
 }
-</code></pre> |
-| <pre><code>BenchmarkBad-4    100000000    2.48s
-</code></pre>                                                                                                                            | <pre><code>BenchmarkGood-4   100000000    0.21s
-</code></pre>                                                                                                                                  |
+</code></pre></td></tr><tr><td><pre><code>BenchmarkBad-4    100000000    2.48s
+</code></pre></td><td><pre><code>BenchmarkGood-4   100000000    0.21s
+</code></pre></td></tr></tbody></table>
 
 ### 使用 Exit 或 Fatal 退出主程序 <a href="#shi-yong-exit-huo-fatal-tui-chu-zhu-cheng-xu" id="shi-yong-exit-huo-fatal-tui-chu-zhu-cheng-xu"></a>
 
@@ -850,9 +790,7 @@ func (l *ConcreteList) Remove(e Entity) {
 * `Fatal` 错误可能导致 `test` 无法全部执行
 * `Fatal` 错误可能导致 `defer` 无法执行
 
-| Bad                                                                                                                                                                                                                                                                                                                      | Good                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <pre class="language-go"><code class="lang-go">func main() {
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">func main() {
   body := readFile(path)
   fmt.Println(body)
 }
@@ -867,7 +805,7 @@ func readFile(path string) string {
   }
   return string(b)
 }
-</code></pre> | <pre class="language-go"><code class="lang-go">func main() {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">func main() {
   body, err := readFile(path)
   if err != nil {
     log.Fatal(err)
@@ -885,15 +823,13 @@ func readFile(path string) (string, error) {
   }
   return string(b), nil
 }
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 在序列化的结构体中需声明 Tag <a href="#zai-xu-lie-hua-de-jie-gou-ti-zhong-xu-sheng-ming-tag" id="zai-xu-lie-hua-de-jie-gou-ti-zhong-xu-sheng-ming-tag"></a>
 
 在序列化的结构体中，应该声明 `json` 或 `xml` 等序列化的 `tag`，以便序列化和反序列化时能够正确的解析数据。
 
-| 不推荐                                                                                                                                                                               | 推荐                                                                                                                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">type Stock struct {
+<table><thead><tr><th>不推荐</th><th>推荐</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">type Stock struct {
   Price int
   Name  string
 }
@@ -901,7 +837,7 @@ bytes, err := json.Marshal(Stock{
   Price: 137,
   Name:  "UBER",
 })
-</code></pre> | <pre class="language-go"><code class="lang-go">type Stock struct {
+</code></pre></td><td><pre class="language-go"><code class="lang-go">type Stock struct {
   Price int    `json:"price"`
   Name  string `json:"name"`
   // Safe to rename Name to Symbol.
@@ -910,7 +846,7 @@ bytes, err := json.Marshal(Stock{
   Price: 137,
   Name:  "UBER",
 })
-</code></pre> |
+</code></pre></td></tr></tbody></table>
 
 ### 注意协程 goroutine 的使用 <a href="#zhu-yi-xie-cheng-goroutine-de-shi-yong" id="zhu-yi-xie-cheng-goroutine-de-shi-yong"></a>
 
@@ -922,15 +858,13 @@ bytes, err := json.Marshal(Stock{
 * goroutine 必须有一个可预测的停止时间
 * goroutine 必须有停止的方法
 
-| Bad                                                                                                                        | Good                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre class="language-go"><code class="lang-go">go func() {
+<table><thead><tr><th>Bad</th><th>Good</th></tr></thead><tbody><tr><td><pre class="language-go"><code class="lang-go">go func() {
   for {
     flush()
     time.Sleep(delay)
   }
 }()
-</code></pre> | <pre class="language-go"><code class="lang-go">var (
+</code></pre></td><td><pre class="language-go"><code class="lang-go">var (
   stop = make(chan struct{}) // 告诉 goroutine 停止
   done = make(chan struct{}) // 告诉我们 goroutine 退出了
 )
@@ -950,8 +884,7 @@ go func() {
 // 其它...
 close(stop)  // 指示 goroutine 停止
 &#x3C;-done       // and wait for it to exit
-</code></pre> |
-| 没有办法阻止这个 goroutine。这将一直运行到应用程序退出。                                                                                          | 这个 goroutine 可以用 `close(stop)`, 我们可以等待它退出 `<-done`.                                                                                                                                                                                                                                                                                                                                                                                                               |
+</code></pre></td></tr><tr><td>没有办法阻止这个 goroutine。这将一直运行到应用程序退出。</td><td>这个 goroutine 可以用 <code>close(stop)</code>, 我们可以等待它退出 <code>&#x3C;-done</code>.</td></tr></tbody></table>
 
 #### **等待 goroutines 退出**
 
