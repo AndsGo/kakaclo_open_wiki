@@ -8,7 +8,7 @@ icon: face-thinking
 
 [原文](https://mp.weixin.qq.com/s/eNJKOuNRoRmSoSbsXTOpJw)
 
-**一、 双重角色设定（沟通前的准备）**
+**一、 双重角色设定（沟通前的准备**多重角色，至少是双重角&#x8272;**）**
 
 在开始任何对话前，先为AI赋予两个核心身份：
 
