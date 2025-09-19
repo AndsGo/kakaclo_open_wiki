@@ -1,3 +1,7 @@
+---
+icon: map-location
+---
+
 # 刘小排在“十字路口”
 
 原文:[https://mp.weixin.qq.com/s/f3mY6Xcne-L\_iMpf4FGc8w](https://mp.weixin.qq.com/s/f3mY6Xcne-L_iMpf4FGc8w)\
