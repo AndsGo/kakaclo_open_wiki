@@ -90,6 +90,10 @@
 * [小技巧](vibe-coding/xiao-ji-qiao.md)
 * [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 
+## prompt
+
+* [代码分析师](prompt/dai-ma-fen-xi-shi.md)
+
 ## 架构
 
 * [DDD 简单入门](jia-gou/ddd-jian-dan-ru-men.md)
