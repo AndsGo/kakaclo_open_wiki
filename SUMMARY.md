@@ -89,6 +89,7 @@
 * [mvp技术栈](vibe-coding/mvp-ji-shu-zhan.md)
 * [小技巧](vibe-coding/xiao-ji-qiao.md)
 * [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
+* [和 AI TDD结对编程：1天开发一个完整的 Python 库](vibe-coding/he-ai-tdd-jie-dui-bian-cheng-1-tian-kai-fa-yi-ge-wan-zheng-de-python-ku.md)
 
 ## prompt
 
