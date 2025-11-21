@@ -90,6 +90,7 @@
 * [小技巧](vibe-coding/xiao-ji-qiao.md)
 * [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 * [和 AI TDD结对编程：1天开发一个完整的 Python 库](vibe-coding/he-ai-tdd-jie-dui-bian-cheng-1-tian-kai-fa-yi-ge-wan-zheng-de-python-ku.md)
+* [AI编码：逃离"修改地狱"的五个实战技巧](vibe-coding/ai-bian-ma-tao-li-xiu-gai-di-yu-de-wu-ge-shi-zhan-ji-qiao.md)
 
 ## prompt
 
