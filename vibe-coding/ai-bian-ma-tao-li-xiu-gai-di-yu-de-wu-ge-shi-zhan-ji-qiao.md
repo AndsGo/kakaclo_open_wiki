@@ -1,5 +1,6 @@
 ---
 description: oneonetalk CTO
+icon: arrow-progress
 ---
 
 # AI编码：逃离"修改地狱"的五个实战技巧
