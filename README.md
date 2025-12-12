@@ -10,13 +10,13 @@ icon: book
 
 
 
-[开发规范](broken-reference)
+[开发规范](/broken/pages/unQwzUkDvbFJUPi1oMRw)
 
 * [Go开发规范](kai-fa-gui-fan/go-kai-fa-gui-fan.md)
 * [阿里java开发规范](kai-fa-gui-fan/a-li-java-kai-fa-gui-fan.md)
 * [TypeScript编码规范](kai-fa-gui-fan/typescript-bian-ma-gui-fan.md)
 
-[Go相关](broken-reference)
+[Go相关](/broken/pages/N9x1vSKF0XbptvUToWPS)
 
 * 1.[Go语言入门](go/go-yu-yan-ru-men-zhi-nan.md)
 * 2.[Go操作Mysql和Redis](go/go-cao-zuo-mysql-he-redis.md)
@@ -27,11 +27,11 @@ icon: book
 * 7.[快速搭建支持图片实时处理的文件服务](go/kuai-su-da-jian-zhi-chi-tu-pian-shi-shi-chu-li-de-wen-jian-fu-wu.md)
 * 8.[Go 语言中的依赖注入：由浅入深Wire 框架](go/go-yu-yan-zhong-de-yi-lai-zhu-ru-you-qian-ru-shen-wire-kuang-jia.md)
 
-[PHP](broken-reference)
+[PHP](/broken/pages/m59yRgdRlBiZhvNZmdJ2)
 
 * 1.[在windows上使用vs code调试laravel](php/zai-windows-shang-shi-yong-visual-studio-code-tiao-shi-laravel-10.md)
 
-[Wordpress站群](broken-reference)
+[Wordpress站群](/broken/pages/v6fgAGjBLf8tTcyQwIwZ)
 
 * 1.[需求分析](wordpress-zhan-qun/xu-qiu-fen-xi.md)
 * 2.[代码初始化](wordpress-zhan-qun/dai-ma-chu-shi-hua.md)
@@ -41,24 +41,24 @@ icon: book
 * 6.[wordpress外部库的引入和测试](wordpress-zhan-qun/wordpress-wai-bu-ku-de-yin-ru-he-ce-shi.md)
 * 7.[job项目搭建和测试](wordpress-zhan-qun/job-xiang-mu-da-jian-he-ce-shi.md)
 
-[运维](broken-reference)
+[运维](/broken/pages/IN3ajDHRpUfWi14FPACF)
 
 * [supervisor安装使用](yun-wei/supervisor-an-zhuang-shi-yong.md)
 * [PLG（Promtail + Loki + Grafana）日志系统生产快速实践](yun-wei/plgpromtail-+-loki-+-grafana-ri-zhi-xi-tong-sheng-chan-kuai-su-shi-jian.md)
 * [SonarQube 集成教程](sonarqube-ji-cheng-jiao-cheng.md)
 
-[前端](broken-reference)
+[前端](/broken/pages/9nKbmKaiO7Uoi7crBkxs)
 
 * [vite、vue、TS项目搭建](vitevue3ts-xiang-mu/vitevue3ts-xiang-mu-da-jian.md)
 
-[JAVA](broken-reference)
+[JAVA](/broken/pages/Rlk052XwaeFBMul2ndd5)
 
 * [记一次库升级引起的程序自动停止](java/ji-yi-ci-ku-ban-ben-sheng-ji-yin-qi-cheng-xu-zi-dong-ting-zhi.md)
 * [大文件解析优化：如何避免OOM异常？](java/da-wen-jian-jie-xi-you-hua-ru-he-bi-mian-oom-yi-chang.md)
 * [java 导入导出](java-bao-biao-dao-ru-dao-chu-xiang-guan/)
 * [Jstack线程/性能分析的利器](jstack-xian-cheng-xing-neng-fen-xi-de-li-qi.md)
 
-[AI](broken-reference)
+[AI](/broken/pages/wff9H4QHF14z1xQgopxN)
 
 * [ComfyUI API Documentation](ai/comfyui-api-documentation.md)
 * [Prompt工程](prompt-gong-cheng.md)
@@ -69,7 +69,7 @@ icon: book
 * [build you own code agent](build-you-own-code-agent.md)
 * [启发式AI沟通框架](qi-fa-shi-ai-gou-tong-kuang-jia.md)
 
-[VIBE CODING](broken-reference)
+[VIBE CODING](/broken/pages/XwpCLzDJ5Vfzuj73mTLb)
 
 * [kiro spec复现](vibe-coding/kiro-spec-fu-xian.md)
 * [6A工作流](vibe-coding/6a-gong-zuo-liu.md)
@@ -80,6 +80,6 @@ icon: book
 * [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 * [和 AI TDD结对编程：1天开发一个完整的 Python 库](vibe-coding/he-ai-tdd-jie-dui-bian-cheng-1-tian-kai-fa-yi-ge-wan-zheng-de-python-ku.md)
 
-[架构](broken-reference)
+[架构](/broken/pages/JYHGe5DEl4dg5W2CRjT8)
 
 * [DDD简单入门](jia-gou/ddd-jian-dan-ru-men.md)

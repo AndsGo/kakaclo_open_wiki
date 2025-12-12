@@ -10,8 +10,7 @@ plan\_and\_execute
 
 {% embed url="https://github.com/langchain-ai/langchain/blob/master/cookbook/plan_and_execute_agent.ipynb" %}
 
-agent prompt\
-
+agent prompt<br>
 
 ```
 你需要解决一个问题。为此，你需要将问题分解为多个步骤。对于每个步骤，首先使用 <thought> 思考要做什么，然后使用可用工具之一决定一个 <action>。接着，你将根据你的行动从环境/工具中收到一个 <observation>。持续这个思考和行动的过程，直到你有足够的信息来提供 <final_answer>。

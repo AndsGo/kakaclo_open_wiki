@@ -94,6 +94,10 @@
 * [四个追问式提示词方法](vibe-coding/si-ge-zhui-wen-shi-ti-shi-ci-fang-fa.md)
 * [程序员MCP服务器使用文档大全](vibe-coding/cheng-xu-yuan-mcp-fu-wu-qi-shi-yong-wen-dang-da-quan.md)
 
+## Agents开发
+
+* [第一章 初识智能体](agents-kai-fa/di-yi-zhang-chu-shi-zhi-neng-ti.md)
+
 ## prompt
 
 * [代码分析师](prompt/dai-ma-fen-xi-shi.md)

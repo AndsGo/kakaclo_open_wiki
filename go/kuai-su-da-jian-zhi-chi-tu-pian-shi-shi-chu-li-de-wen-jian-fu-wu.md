@@ -192,4 +192,4 @@ http://127.0.0.1:8000/proxy/https://raw.githubusercontent.com/AndsGo/imageproces
 
 如果你正在寻找一个轻量级且支持图片实时处理的的文件服务器，`slimfiler` 绝对是一个值得尝试的工具。更多详细信息，访问 [GitHub 仓库](https://github.com/AndsGo/slimfiler)。
 
-\
+<br>

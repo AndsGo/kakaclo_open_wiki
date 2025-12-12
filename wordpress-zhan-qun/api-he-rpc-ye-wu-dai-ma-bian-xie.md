@@ -283,4 +283,4 @@ func (m *defaultPostsModel) AddPosts(ctx context.Context, data *Posts, text *Pos
 }
 ```
 
-\
+<br>

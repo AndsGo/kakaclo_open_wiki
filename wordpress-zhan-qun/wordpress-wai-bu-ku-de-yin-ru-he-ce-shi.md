@@ -396,4 +396,4 @@ func (l *AddStationLogic) AddStation(in *types.StationInfo) (resp *types.Station
 
 引入公共库，工具类时，我们可以对其进行测试。测试使用testing，通过测试我们可以快速验证工具能力。测试做的完善可以大大减少我们bug量。
 
-\
+<br>
