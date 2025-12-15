@@ -4,8 +4,7 @@ description: 进峰
 
 # 🕋 Go操作MySQL和Redis
 
-内部分享视频，没有剪辑。\
-
+内部分享视频，没有剪辑。<br>
 
 {% embed url="https://www.bilibili.com/video/BV1N7421o7hn/" %}
 

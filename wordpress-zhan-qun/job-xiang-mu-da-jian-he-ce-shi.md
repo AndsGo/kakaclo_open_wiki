@@ -381,4 +381,4 @@ func Init(conf config.Config) {
 2. 配置任务 PostsDelivery
 3. 运行进行测试
 
-\
+<br>
