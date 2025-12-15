@@ -79,6 +79,13 @@ icon: book
 * [小技巧](vibe-coding/xiao-ji-qiao.md)
 * [刘小排在“十字路口”](vibe-coding/liu-xiao-pai-zai-shi-zi-lu-kou.md)
 * [和 AI TDD结对编程：1天开发一个完整的 Python 库](vibe-coding/he-ai-tdd-jie-dui-bian-cheng-1-tian-kai-fa-yi-ge-wan-zheng-de-python-ku.md)
+* [AI编程：逃离"修改地狱"的五个实战技巧](vibe-coding/ai-bian-ma-tao-li-xiu-gai-di-yu-de-wu-ge-shi-zhan-ji-qiao.md)
+* [四个追问式提示词方法](vibe-coding/si-ge-zhui-wen-shi-ti-shi-ci-fang-fa.md)
+* [程序员MCP服务器使用文档大全](vibe-coding/cheng-xu-yuan-mcp-fu-wu-qi-shi-yong-wen-dang-da-quan.md)
+
+[AGENTS开发](/broken/pages/JScFI505sxthGfFMI2N4)
+
+* [第一章 认识智能体](agents-kai-fa/di-yi-zhang-chu-shi-zhi-neng-ti.md)
 
 [架构](/broken/pages/JYHGe5DEl4dg5W2CRjT8)
 
