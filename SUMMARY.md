@@ -98,6 +98,10 @@
 
 * [第一章 初识智能体](agents-kai-fa/di-yi-zhang-chu-shi-zhi-neng-ti.md)
 
+## 数据中台
+
+* [数据中台技术架构文档（中小型跨境电商企业·轻量级方案）](shu-ju-zhong-tai/shu-ju-zhong-tai-ji-shu-jia-gou-wen-dang-zhong-xiao-xing-kua-jing-dian-shang-qi-ye-qing-liang-ji-fan.md)
+
 ## prompt
 
 * [代码分析师](prompt/dai-ma-fen-xi-shi.md)
