@@ -106,6 +106,7 @@
 ## prompt
 
 * [代码分析师](prompt/dai-ma-fen-xi-shi.md)
+* [🚀 新手快速入门 Prompt（80/20 学习法）](prompt/xin-shou-kuai-su-ru-men-prompt8020-xue-xi-fa.md)
 
 ## 架构
 
