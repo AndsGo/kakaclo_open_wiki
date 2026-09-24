@@ -84,6 +84,8 @@
 * [build you own code agent](build-you-own-code-agent.md)
 * [启发式AI沟通框架](qi-fa-shi-ai-gou-tong-kuang-jia.md)
 * [搭建自己的Agent Harness环境](da-jian-zi-ji-de-agent-harness-huan-jing.md)
+* [LLM选型及成本、效率优化](llm-xuan-xing-ji-cheng-ben-xiaolyou-hua.md)
+* [OpenSpec：让 AI 照着「需求账本」写代码](openspec-rang-ai-zhao-zhe-xu-qiu-zhang-ben-xie-dai-ma.md)
 
 ## vibe coding
 
